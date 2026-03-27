@@ -130,7 +130,7 @@ export default function ContactSection() {
 
       if (result.success) {
         toast.success("Message sent successfully!");
-        setForm({ name: "", email: "", subject: "", message: "" });
+        setForm({ name: "", email: "", phone: "", subject: "", message: "" });
         setIsSuccess(true);
       } else {
         toast.error("Failed to send message. Please try again later.");
@@ -249,12 +249,12 @@ export default function ContactSection() {
             className="lg:col-span-3 glass-card rounded-2xl p-8 flex flex-col relative min-h-[400px]"
           >
             {isSuccess ? (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center text-center flex-1 py-10"
               >
-                <motion.div 
+                <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", delay: 0.1, bounce: 0.5 }}
@@ -315,47 +315,47 @@ export default function ContactSection() {
                   ))}
                 </div>
 
-            <div>
-              <label htmlFor="message" className="text-sm font-medium mb-2 block text-foreground">Message</label>
-              <textarea
-                id="message"
-                required
-                rows={5}
-                placeholder="Tell me about your project..."
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                onFocus={() => setFocused("message")}
-                onBlur={() => setFocused(null)}
-                className={`w-full px-4 py-3 rounded-xl bg-secondary text-foreground border transition-all text-sm resize-none placeholder:text-muted-foreground/50 ${focused === "message"
-                  ? "border-primary ring-2 ring-primary/20"
-                  : "border-border focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  } focus:outline-none`}
-              />
-            </div>
-
-            <motion.button
-              type="submit"
-              disabled={sending}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover-glow disabled:opacity-50 transition-all text-base"
-            >
-              {sending ? (
-                <>
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
+                <div>
+                  <label htmlFor="message" className="text-sm font-medium mb-2 block text-foreground">Message</label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={5}
+                    placeholder="Tell me about your project..."
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    onFocus={() => setFocused("message")}
+                    onBlur={() => setFocused(null)}
+                    className={`w-full px-4 py-3 rounded-xl bg-secondary text-foreground border transition-all text-sm resize-none placeholder:text-muted-foreground/50 ${focused === "message"
+                      ? "border-primary ring-2 ring-primary/20"
+                      : "border-border focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      } focus:outline-none`}
                   />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send size={18} />
-                  Send Message
-                </>
-              )}
-            </motion.button>
+                </div>
+
+                <motion.button
+                  type="submit"
+                  disabled={sending}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover-glow disabled:opacity-50 transition-all text-base"
+                >
+                  {sending ? (
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
+                      />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={18} />
+                      Send Message
+                    </>
+                  )}
+                </motion.button>
               </form>
             )}
           </motion.div>
