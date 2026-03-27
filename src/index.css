@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98.4%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 230 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 14%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 270 80% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 230 80% 60%;
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(230 80% 60%), hsl(270 80% 55%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 99%));
+    --gradient-hero: linear-gradient(145deg, hsl(0 0% 99%), hsl(0 0% 95%));
+    --glass-bg: hsl(0 0% 100% / 0.85);
+    --glass-border: hsl(0 0% 0% / 0.06);
+    --shadow-glow: 0 20px 40px -15px hsl(0 0% 0% / 0.06);
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 220 15% 90%;
+    --card: 220 25% 10%;
+    --card-foreground: 220 15% 90%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 220 15% 90%;
+    --primary: 190 90% 50%;
+    --primary-foreground: 220 25% 5%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 220 15% 85%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 270 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 190 90% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(190 90% 50%), hsl(270 80% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(220 25% 12% / 0.8), hsl(220 25% 8% / 0.4));
+    --gradient-hero: linear-gradient(135deg, hsl(220 25% 6%), hsl(220 30% 4%));
+    --glass-bg: hsl(220 25% 12% / 0.6);
+    --glass-border: hsl(220 20% 20% / 0.5);
+    --shadow-glow: 0 0 40px hsl(190 90% 50% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(190 90% 50% / 0.2), 0 0 60px hsl(270 80% 60% / 0.1);
+    transform: translateY(-4px);
+  }
+}
