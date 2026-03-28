@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Subhash Portfolio
 
-TODO: Document your project here
+This is a personal portfolio project.TODO: Document your project here
