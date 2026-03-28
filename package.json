@@ -1,12 +1,9 @@
 {
   "name": "subhash-portfolio",
-  "homepage": "https://subhashkumar-1234.github.io/ShubhashdevPortfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
